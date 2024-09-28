@@ -71,11 +71,11 @@ fun RestaurantInterface(navController: NavController) {
                     itemContent = { index ->
                         val dish = menu[index]
                         var x = 0
-//                        if (flag) {                     //hey what does this do, you don't have a flag variable
-//                            x = R.color.teal_200
-//                        } else {
-//                            x = R.color.purple_500
-//                        }
+                        if (flag) {                     //hey what does this do, you don't have a flag variable
+                            x = R.color.teal_200
+                        } else {
+                            x = R.color.purple_500
+                        }
                         flag = !flag
                         //card
                         Card(
@@ -91,8 +91,8 @@ fun RestaurantInterface(navController: NavController) {
                                 .height(120.dp)
                                 .padding(8.dp),
                             colors = CardDefaults.cardColors(
-                                containerColor =
-                                colorResource(id = x)
+                                containerColor = colorResource(id = R.color.light_gray)
+                                //colorResource(id = x)
                             ),
                             shape = RoundedCornerShape(10.dp),
                             elevation = CardDefaults.cardElevation(8.dp),
@@ -122,13 +122,13 @@ fun RestaurantInterface(navController: NavController) {
                                         Text(
                                             dish.dishName,
                                             fontSize = 20.sp,
-                                            color = Color.White
+                                            color = Color.Black
                                         )
                                         Spacer(modifier = Modifier.height(4.dp))
                                         Text(
                                             dish.dishTranslation,
                                             fontSize = 16.sp,
-                                            color = Color.White
+                                            color = Color.Black
                                         )
                                     }
 
