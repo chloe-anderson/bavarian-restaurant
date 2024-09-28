@@ -49,11 +49,10 @@ fun RestaurantInterface(navController: NavController) {
     var topBarBehavior = TopAppBarDefaults.pinnedScrollBehavior()
     var flag = true
 
-    Scaffold(    //Delete the scope of the scoffold
+    Scaffold(
         modifier = Modifier.nestedScroll(topBarBehavior.nestedScrollConnection),
         topBar = {
-
-            TopAppBar(    //Delete the scope of the TopAppBar
+            TopAppBar(
                 title = { Text("Your Guide to a Bavarian Restaurant", fontSize = 20.sp) },
                 colors = TopAppBarDefaults.smallTopAppBarColors(
                     containerColor = colorResource(R.color.purple_500),
@@ -61,7 +60,7 @@ fun RestaurantInterface(navController: NavController) {
                 ),
                 scrollBehavior = topBarBehavior
             )
-        },//topBar
+        },
         content = { it ->
             LazyColumn(
                 modifier = Modifier.padding(it)
@@ -135,15 +134,15 @@ fun RestaurantInterface(navController: NavController) {
                                 }//2222222
                                 Button(
                                     onClick = {
-//                                        navController.navigate("SecondPage/${dish.dishID}")
+                                        navController.navigate("MenuItemDetail/${dish.dishID}")
                                     },
                                     colors = ButtonDefaults.buttonColors(containerColor = Color.White),
                                 ) {
-//                                    Icon(
-//                                        Icons.Rounded.ArrowForward,
-//                                        contentDescription = "Details",
-//                                        tint = Color.Red
-//                                    )
+                                    Icon(
+                                        Icons.Rounded.ArrowForward,
+                                        contentDescription = "${dish.dishName}",
+                                        tint = Color.Gray
+                                    )
                                 }
                             }
                         }

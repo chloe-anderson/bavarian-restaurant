@@ -56,6 +56,17 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.bavarian_restaurant.ui.theme.BavarianRestaurantTheme
 
+
+/*
+ * Homework 4: Bavarian Restaurant
+ * Developer: Chloe Anderson
+ * Date: September 27, 2024
+ * Version: Koala Feature Drop | 2024.1.2
+ * OS: Ubuntu Linux 24.10
+ * Description: This app allows the user to explore the typical offerings of a traditional Bavarian restaurant,
+so that they can gain familiarity with the dishes and better appreciate Bavarian cuisine.
+ */
+
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -76,16 +87,16 @@ fun MyNavigation() { //After Moving First page
         composable("RestaurantInterface") {
             RestaurantInterface(navController = navController)
         }
-//        composable("SecondPage/{id}",
-//            arguments = listOf(
-//                navArgument("id") { type = NavType.IntType }
-//            )
-//        ) {it->
-//            val dishId = it.arguments?.getInt("id")
-//            dishId?.let {dishId ->   //it parameter
-//                SecondPage(navController = navController, id = dishId,)
-//            }
-//        }
+        composable("MenuItemDetail/{id}",
+            arguments = listOf(
+                navArgument("id") { type = NavType.IntType }
+            )
+        ) {it->
+            val dishId = it.arguments?.getInt("id")
+            dishId?.let {dishId ->   //it parameter
+                MenuItemDetail(navController = navController, id = dishId,)
+            }
+        }
     }
 
 
