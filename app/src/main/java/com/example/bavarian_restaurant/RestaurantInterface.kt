@@ -78,13 +78,13 @@ fun RestaurantInterface(navController: NavController) {
                         flag = !flag
                         //card
                         Card(
-                            onClick = {
-                                Toast.makeText(
-                                    context,
-                                    dish.dishName,
-                                    Toast.LENGTH_SHORT
-                                ).show()
-                            },
+//                            onClick = {
+//                                Toast.makeText(
+//                                    context,
+//                                    dish.dishName,
+//                                    Toast.LENGTH_SHORT
+//                                ).show()
+//                            },
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .height(120.dp)

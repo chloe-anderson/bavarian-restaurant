@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -36,7 +37,8 @@ import androidx.navigation.NavController
 @Composable
 fun MenuItemDetail(navController: NavController, id: Int) {
     //I want to display the detailed information for each menu item here
-    //val menu = getMenu()
+    val menu = getMenu()
+    val dish = menu[id - 1]
     val context = LocalContext.current
     var topBarBehavior = TopAppBarDefaults.pinnedScrollBehavior()
 
@@ -45,7 +47,13 @@ fun MenuItemDetail(navController: NavController, id: Int) {
         topBar = {
             TopAppBar(
                 // icon to go back to main page
-                title = { Text("Your Guide to a Bavarian Restaurant", fontSize = 20.sp) },
+                navigationIcon = {
+                    IconButton(onClick = {navController.popBackStack()}) {
+                        Icon(Icons.Rounded.ArrowBack, contentDescription = "Arrow Back" )
+                    }
+                },
+                //title
+                title = { Text(dish.dishName, fontSize = 20.sp) },
                 colors = TopAppBarDefaults.smallTopAppBarColors(
                     containerColor = colorResource(R.color.purple_500),
                     titleContentColor = Color.White,
@@ -57,7 +65,9 @@ fun MenuItemDetail(navController: NavController, id: Int) {
             Column(
                 modifier = Modifier.padding(it)
             ) {
-                Text("The dish that was ordered")
+
+                    Text("The dish that was ordered")
+
             }
         }
     )
