@@ -4,6 +4,7 @@ data class MenuItemModel(
     val dishID: Int,
     val dishName: String,
     val dishTranslation: String,
+    val dishPronunciation: String,
     val dishDetail : String,
     val dishImage: Int
 )

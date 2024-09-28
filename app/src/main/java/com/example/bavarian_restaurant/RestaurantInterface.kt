@@ -47,7 +47,6 @@ fun RestaurantInterface(navController: NavController) {
     val menu = getMenu()
     val context = LocalContext.current
     var topBarBehavior = TopAppBarDefaults.pinnedScrollBehavior()
-    var flag = true
 
     Scaffold(
         modifier = Modifier.nestedScroll(topBarBehavior.nestedScrollConnection),
@@ -69,29 +68,14 @@ fun RestaurantInterface(navController: NavController) {
                     count = menu.size,
                     itemContent = { index ->
                         val dish = menu[index]
-                        var x = 0
-                        if (flag) {                     //hey what does this do, you don't have a flag variable
-                            x = R.color.teal_200
-                        } else {
-                            x = R.color.purple_500
-                        }
-                        flag = !flag
                         //card
                         Card(
-//                            onClick = {
-//                                Toast.makeText(
-//                                    context,
-//                                    dish.dishName,
-//                                    Toast.LENGTH_SHORT
-//                                ).show()
-//                            },
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .height(120.dp)
                                 .padding(8.dp),
                             colors = CardDefaults.cardColors(
                                 containerColor = colorResource(id = R.color.light_gray)
-                                //colorResource(id = x)
                             ),
                             shape = RoundedCornerShape(10.dp),
                             elevation = CardDefaults.cardElevation(8.dp),

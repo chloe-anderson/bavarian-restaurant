@@ -13,9 +13,14 @@ fun getMenu() : SnapshotStateList<MenuItemModel> {
                 1,
                 "Käsespätzle",
                 "Cheesy Spätzle",
-                "A cheesy dish consisting of spätzle, a type of pasta, served with radishes for garnish",
+                "[KAY-zuh-SHPET-sluh]",
+                "A cheesy dish consisting of spätzle, a type of pasta, " +
+                        "typically served with either crispy onions or radishes for garnish.",
+
                 R.drawable.k_sesp_tzle
             ),
+            MenuItemModel(2, ""
+            )
         )
     }
     return menu

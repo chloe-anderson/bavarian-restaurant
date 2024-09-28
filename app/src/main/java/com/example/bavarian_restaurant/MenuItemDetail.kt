@@ -49,11 +49,11 @@ fun MenuItemDetail(navController: NavController, id: Int) {
                 // icon to go back to main page
                 navigationIcon = {
                     IconButton(onClick = {navController.popBackStack()}) {
-                        Icon(Icons.Rounded.ArrowBack, contentDescription = "Arrow Back" )
+                        Icon(Icons.Rounded.ArrowBack, contentDescription = "Arrow Back", tint = Color.White)
                     }
                 },
                 //title
-                title = { Text(dish.dishName, fontSize = 20.sp) },
+                title = { Text("Back to Menu", fontSize = 20.sp) },
                 colors = TopAppBarDefaults.smallTopAppBarColors(
                     containerColor = colorResource(R.color.purple_500),
                     titleContentColor = Color.White,
@@ -64,9 +64,27 @@ fun MenuItemDetail(navController: NavController, id: Int) {
         content = { it ->
             Column(
                 modifier = Modifier.padding(it)
+                    .padding(horizontal = 25.dp, vertical = 15.dp)
             ) {
+                Spacer(modifier = Modifier.height(10.dp))
+                Image(
+                    painter = painterResource(id = dish.dishImage),
+                    contentDescription = "Image of $dish as it would be served in a restaurant",
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(200.dp)
+                )
+                Spacer(modifier = Modifier.height(10.dp))
+                Text(text = dish.dishName,
+                    fontSize = 34.sp,
+                    modifier = Modifier.align(Alignment.CenterHorizontally))
+                Spacer(modifier = Modifier.height(10.dp))
+                Text(text = dish.dishPronunciation, modifier = Modifier.align(Alignment.CenterHorizontally))
+                Spacer(modifier = Modifier.height(10.dp))
 
-                    Text("The dish that was ordered")
+                Text(text = dish.dishDetail,
+                    modifier = Modifier.align(Alignment.CenterHorizontally)
+                )
 
             }
         }
